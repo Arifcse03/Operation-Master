@@ -1,0 +1,5 @@
+The following Synchronization Actions were performed successfully:
+
+Entity :MnjMfgOperationMasterH
+  Create Attribute for column: WASH_NAME
+  Create Attribute for column: COLOR_NAME

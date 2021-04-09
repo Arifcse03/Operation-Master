@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgOperationMasterHFkAssoc"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="MnjMfgOperationMasterH"
+    Cardinality="1"
+    Source="true"
+    Owner="mnj.mfg.model.entities.MnjMfgOperationMasterH">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MnjMfgOperationMasterH"/>
+      <Attr Name="_foreignKey"
+        Value="mnj.mfg.model.entities.MnjMfgOperationMasterH.MnjMfgOperationMasterHPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.MnjMfgOperationMasterH.HeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="MnjMfgOperationMasterL"
+    Cardinality="-1"
+    Owner="mnj.mfg.model.entities.MnjMfgOperationMasterL">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="MnjMfgOperationMasterL"/>
+      <Attr Name="_foreignKey"
+        Value="mnj.mfg.model.entities.MnjMfgOperationMasterL.MnjMfgOperationMasterHFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.entities.MnjMfgOperationMasterL.HeaderId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

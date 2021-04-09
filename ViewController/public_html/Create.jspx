@@ -1,0 +1,218 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="Operation Master Form" id="ph1">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelFormLayout id="pfl1" rows="3">
+            <af:inputText value="#{bindings.HeaderNo.inputValue}"
+                          label="Header No"
+                          required="#{bindings.HeaderNo.hints.mandatory}"
+                          columns="#{bindings.HeaderNo.hints.displayWidth}"
+                          maximumLength="#{bindings.HeaderNo.hints.precision}"
+                          shortDesc="#{bindings.HeaderNo.hints.tooltip}"
+                          id="it5">
+              <f:validator binding="#{bindings.HeaderNo.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="stnNoId"
+                                  popupTitle="Search and Select: #{bindings.StnNo.hints.label}"
+                                  value="#{bindings.StnNo.inputValue}"
+                                  label="STN Number"
+                                  model="#{bindings.StnNo.listOfValuesModel}"
+                                  required="#{bindings.StnNo.hints.mandatory}"
+                                  columns="#{bindings.StnNo.hints.displayWidth}"
+                                  shortDesc="#{bindings.StnNo.hints.tooltip}"
+                                  binding="#{NewManagedBean.stnNo}">
+              <f:validator binding="#{bindings.StnNo.validator}"/>
+            </af:inputListOfValues>
+            <af:inputListOfValues id="orderNoId"
+                                  popupTitle="Search and Select: #{bindings.OrderNo.hints.label}"
+                                  value="#{bindings.OrderNo.inputValue}"
+                                  label="Order Number"
+                                  model="#{bindings.OrderNo.listOfValuesModel}"
+                                  required="#{bindings.OrderNo.hints.mandatory}"
+                                  columns="#{bindings.OrderNo.hints.displayWidth}"
+                                  shortDesc="#{bindings.OrderNo.hints.tooltip}">
+              <f:validator binding="#{bindings.OrderNo.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.OrderNo.format}"/>
+            </af:inputListOfValues>
+            <af:inputText value="#{bindings.Stn.inputValue}"
+                          label="STN"
+                          required="#{bindings.Stn.hints.mandatory}"
+                          columns="#{bindings.Stn.hints.displayWidth}"
+                          maximumLength="#{bindings.Stn.hints.precision}"
+                          shortDesc="#{bindings.Stn.hints.tooltip}" id="it6">
+              <f:validator binding="#{bindings.Stn.validator}"/>
+            </af:inputText>
+            <af:inputListOfValues id="searchStnId"
+                                  popupTitle="Search and Select: #{bindings.SearchStn.hints.label}"
+                                  value="#{bindings.SearchStn.inputValue}"
+                                  label="Search STN"
+                                  model="#{bindings.SearchStn.listOfValuesModel}"
+                                  required="#{bindings.SearchStn.hints.mandatory}"
+                                  columns="#{bindings.SearchStn.hints.displayWidth}"
+                                  shortDesc="#{bindings.SearchStn.hints.tooltip}">
+              <f:validator binding="#{bindings.SearchStn.validator}"/>
+            </af:inputListOfValues>
+            <af:inputText value="#{bindings.HeaderIdTemp.inputValue}"
+                          label="Header Id Temp"
+                          required="#{bindings.HeaderIdTemp.hints.mandatory}"
+                          columns="#{bindings.HeaderIdTemp.hints.displayWidth}"
+                          maximumLength="#{bindings.HeaderIdTemp.hints.precision}"
+                          shortDesc="#{bindings.HeaderIdTemp.hints.tooltip}"
+                          partialTriggers="searchStnId" id="it4">
+              <f:validator binding="#{bindings.HeaderIdTemp.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.StyleNo.inputValue}"
+                          label="Style Number"
+                          required="#{bindings.StyleNo.hints.mandatory}"
+                          columns="#{bindings.StyleNo.hints.displayWidth}"
+                          maximumLength="#{bindings.StyleNo.hints.precision}"
+                          shortDesc="#{bindings.StyleNo.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it7">
+              <f:validator binding="#{bindings.StyleNo.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.StyleName.inputValue}"
+                          label="Style Name"
+                          required="#{bindings.StyleName.hints.mandatory}"
+                          columns="#{bindings.StyleName.hints.displayWidth}"
+                          maximumLength="#{bindings.StyleName.hints.precision}"
+                          shortDesc="#{bindings.StyleName.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it10">
+              <f:validator binding="#{bindings.StyleName.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Brand.inputValue}"
+                          label="Brand"
+                          required="#{bindings.Brand.hints.mandatory}"
+                          columns="#{bindings.Brand.hints.displayWidth}"
+                          maximumLength="#{bindings.Brand.hints.precision}"
+                          shortDesc="#{bindings.Brand.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it9">
+              <f:validator binding="#{bindings.Brand.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Devision.inputValue}"
+                          label="Division"
+                          required="#{bindings.Devision.hints.mandatory}"
+                          columns="#{bindings.Devision.hints.displayWidth}"
+                          maximumLength="#{bindings.Devision.hints.precision}"
+                          shortDesc="#{bindings.Devision.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it1">
+              <f:validator binding="#{bindings.Devision.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Season.inputValue}"
+                          label="#{bindings.Season.hints.label}"
+                          required="#{bindings.Season.hints.mandatory}"
+                          columns="#{bindings.Season.hints.displayWidth}"
+                          maximumLength="#{bindings.Season.hints.precision}"
+                          shortDesc="#{bindings.Season.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it2">
+              <f:validator binding="#{bindings.Season.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Buyer.inputValue}"
+                          label="#{bindings.Buyer.hints.label}"
+                          required="#{bindings.Buyer.hints.mandatory}"
+                          columns="#{bindings.Buyer.hints.displayWidth}"
+                          maximumLength="#{bindings.Buyer.hints.precision}"
+                          shortDesc="#{bindings.Buyer.hints.tooltip}"
+                          partialTriggers="orderNoId" id="it3">
+              <f:validator binding="#{bindings.Buyer.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.ItemDesc.inputValue}"
+                          label="#{bindings.ItemDesc.hints.label}"
+                          required="#{bindings.ItemDesc.hints.mandatory}"
+                          columns="#{bindings.ItemDesc.hints.displayWidth}"
+                          maximumLength="#{bindings.ItemDesc.hints.precision}"
+                          shortDesc="#{bindings.ItemDesc.hints.tooltip}"
+                          partialTriggers="stnNoId" id="it8">
+              <f:validator binding="#{bindings.ItemDesc.validator}"/>
+            </af:inputText>
+          </af:panelFormLayout>
+        </af:panelHeader>
+        <af:panelCollection id="pc1" inlineStyle="width:382px;">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                text="CreateInsert"
+                                disabled="#{!bindings.CreateInsert.enabled}"
+                                id="cb1"/>
+              <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                text="Delete"
+                                disabled="#{!bindings.Delete.enabled}"
+                                id="cb2"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.MnjMfgOperationMasterLView1.collectionModel}"
+                    var="row"
+                    rows="#{bindings.MnjMfgOperationMasterLView1.rangeSize}"
+                    emptyText="#{bindings.MnjMfgOperationMasterLView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    fetchSize="#{bindings.MnjMfgOperationMasterLView1.rangeSize}"
+                    rowBandingInterval="0"
+                    filterModel="#{bindings.MnjMfgOperationMasterLView1Query.queryDescriptor}"
+                    queryListener="#{bindings.MnjMfgOperationMasterLView1Query.processQuery}"
+                    filterVisible="true" varStatus="vs"
+                    selectedRowKeys="#{bindings.MnjMfgOperationMasterLView1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.MnjMfgOperationMasterLView1.collectionModel.makeCurrent}"
+                    rowSelection="single" id="t1" partialTriggers="::cb1 ::cb2">
+            <af:column sortProperty="DeptId" filterable="true" sortable="true"
+                       headerText="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.label}"
+                       id="c6">
+              <af:inputText value="#{row.bindings.DeptId.inputValue}"
+                            label="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.label}"
+                            required="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.mandatory}"
+                            columns="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.displayWidth}"
+                            maximumLength="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.precision}"
+                            shortDesc="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.tooltip}"
+                            id="it12" binding="#{NewManagedBean.deptId}"
+                            valueChangeListener="#{NewManagedBean.testval}">
+                <f:validator binding="#{row.bindings.DeptId.validator}"/>
+                <af:convertNumber groupingUsed="false"
+                                  pattern="#{bindings.MnjMfgOperationMasterLView1.hints.DeptId.format}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="DeptName" filterable="true" sortable="true"
+                       headerText="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.label}"
+                       id="c9">
+              <af:inputText value="#{row.bindings.DeptName.inputValue}"
+                            label="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.label}"
+                            required="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.mandatory}"
+                            columns="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.displayWidth}"
+                            maximumLength="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.precision}"
+                            shortDesc="#{bindings.MnjMfgOperationMasterLView1.hints.DeptName.tooltip}"
+                            id="it14">
+                <f:validator binding="#{row.bindings.DeptName.validator}"/>
+              </af:inputText>
+            </af:column>
+            <af:column sortProperty="DeptNo" filterable="true" sortable="true"
+                       headerText="#{bindings.MnjMfgOperationMasterLView1.hints.DeptNo.label}"
+                       id="c7">
+              <af:inputListOfValues id="deptNoId"
+                                    popupTitle="Search and Select: #{bindings.MnjMfgOperationMasterLView1.hints.DeptNo.label}"
+                                    value="#{row.bindings.DeptNo.inputValue}"
+                                    model="#{row.bindings.DeptNo.listOfValuesModel}"
+                                    required="#{bindings.MnjMfgOperationMasterLView1.hints.DeptNo.mandatory}"
+                                    columns="#{bindings.MnjMfgOperationMasterLView1.hints.DeptNo.displayWidth}"
+                                    shortDesc="#{bindings.MnjMfgOperationMasterLView1.hints.DeptNo.tooltip}"
+                                    binding="#{NewManagedBean.deptNo}"
+                                    valueChangeListener="#{NewManagedBean.testval}">
+                <f:validator binding="#{row.bindings.DeptNo.validator}"/>
+              </af:inputListOfValues>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="MnjMfgOperationMasterDFkLink"
+  Version="11.1.1.62.29"
+  InheritPersonalization="true"
+  EntityAssociation="mnj.mfg.model.entities.MnjMfgOperationMasterDFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="MnjMfgOperationMasterLView"
+    Cardinality="1"
+    Owner="mnj.mfg.model.views.MnjMfgOperationMasterLView"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="MnjMfgOperationMasterLView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.MnjMfgOperationMasterLView.LineId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="DeatilsEOView"
+    Cardinality="-1"
+    Owner="mnj.mfg.model.views.DeatilsEOView">
+    <DesignTime>
+      <Attr Name="_finderName" Value="DeatilsEOView"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="mnj.mfg.model.views.DeatilsEOView.LineId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.62.29" id="SearchPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="MnjMfgOperationMasterHView1" RangeSize="25"
+              DataControl="MainAMDataControl"
+              id="MnjMfgOperationMasterHView1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Criteria="SimpleSearch"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="MnjMfgOperationMasterHView1Iterator"
+                  id="SimpleSearchQuery"/>
+    <iterator Binds="MnjMfgOperationMasterLView1" RangeSize="25"
+              DataControl="MainAMDataControl"
+              id="MnjMfgOperationMasterLView1Iterator" ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="MnjMfgOperationMasterLView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MnjMfgOperationMasterLView1Query"/>
+    <iterator Binds="DeatilsEOView1" RangeSize="25"
+              DataControl="MainAMDataControl" id="DeatilsEOView1Iterator"
+              ChangeEventPolicy="ppr"/>
+    <searchRegion Binds="DeatilsEOView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DeatilsEOView1Query"/>
+    <iterator Binds="FillOperation1" RangeSize="25"
+              DataControl="MainAMDataControl" id="FillOperation1Iterator"/>
+    <searchRegion Binds="FillOperation1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="FillOperation1Query"/>
+    <invokeAction id="setSession" Binds="setSessionValues" Refresh="always"/>
+  </executables>
+  <bindings>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction" DataControl="MainAMDataControl"/>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="HeaderNo">
+      <AttrNames>
+        <Item Value="HeaderNo"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="MnjMfgOperationMasterHView1Iterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <tree IterBinding="MnjMfgOperationMasterLView1Iterator"
+          id="MnjMfgOperationMasterLView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgOperationMasterLView"
+                      Name="MnjMfgOperationMasterLView10">
+        <AttrNames>
+          <Item Value="DeptId"/>
+          <Item Value="DeptName"/>
+          <Item Value="DeptNo"/>
+          <Item Value="TardetProduction"/>
+          <Item Value="OptionNo"/>
+          <Item Value="VersionNo"/>
+          <Item Value="TotalSamValue"/>
+          <Item Value="Creator"/>
+          <Item Value="CreationDate"/>
+          <Item Value="Updater"/>
+          <Item Value="LastUpdatedDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="LastUdatedBy"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DeatilsEOView1Iterator" id="DeatilsEOView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.DeatilsEOView"
+                      Name="DeatilsEOView10">
+        <AttrNames>
+          <Item Value="MinorOperation"/>
+          <Item Value="MajorOpId"/>
+          <Item Value="Smv"/>
+          <Item Value="OperationCode"/>
+          <Item Value="MajorOperation"/>
+          <Item Value="MachineType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="MnjMfgOperationMasterLView1Iterator" id="CreateInsert1"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="MnjMfgOperationMasterLView1Iterator" id="Delete1"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="DeatilsEOView1Iterator" id="CreateInsert2"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="DeatilsEOView1Iterator" id="Delete2"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgOperationMasterHView1Iterator"
+                  Uses="LOV_OrderNo" id="OrderNo"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgOperationMasterHView1Iterator"
+                  Uses="LOV_SearchStn" id="SearchStn"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgOperationMasterHView1Iterator"
+                  Uses="LOV_StnNo" id="StnNo"/>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="HeaderIdTemp">
+      <AttrNames>
+        <Item Value="HeaderIdTemp"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="MnjMfgOperationMasterHView1Iterator"
+          id="MnjMfgOperationMasterHView1">
+      <nodeDefinition DefName="mnj.mfg.model.views.MnjMfgOperationMasterHView"
+                      Name="MnjMfgOperationMasterHView10">
+        <AttrNames>
+          <Item Value="HeaderNo"/>
+          <Item Value="OrderNo"/>
+          <Item Value="StnNo"/>
+          <Item Value="Buyer"/>
+          <Item Value="StyleName"/>
+          <Item Value="Season"/>
+          <Item Value="CurrentStyle"/>
+          <Item Value="CurrentSeason"/>
+          <Item Value="PocId"/>
+          <Item Value="CustomerNameNew"/>
+          <Item Value="StyleNew"/>
+          <Item Value="SeasonNew"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="SaleOrderId">
+      <AttrNames>
+        <Item Value="SaleOrderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Brand">
+      <AttrNames>
+        <Item Value="Brand"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Devision">
+      <AttrNames>
+        <Item Value="Devision"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="ItemDesc">
+      <AttrNames>
+        <Item Value="ItemDesc"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="HeaderId">
+      <AttrNames>
+        <Item Value="HeaderId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="FabricType">
+      <AttrNames>
+        <Item Value="FabricType"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="FillOperation1Iterator" id="FillOperation1">
+      <nodeDefinition DefName="mnj.mfg.model.views.FillOperationVO"
+                      Name="FillOperation10">
+        <AttrNames>
+          <Item Value="OperationCode"/>
+          <Item Value="MajorOperation"/>
+          <Item Value="MinorOperation"/>
+          <Item Value="Sam"/>
+          <Item Value="CheckBoxOperation"/>
+          <Item Value="Machinetype"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="callOperationFetch"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="callOperationFetch"
+                  IsViewObjectMethod="false"/>
+    <methodAction id="populateOperationLines"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateOperationLines"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="poprow" NDType="oracle.jbo.Row"/>
+    </methodAction>
+    <methodAction id="createOperationLines"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="createOperationLines"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.MainAMDataControl.methodResults.createOperationLines_MainAMDataControl_dataProvider_createOperationLines_result"/>
+    <methodAction id="getPopulateValue"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="getPopulateValue"
+                  IsViewObjectMethod="false"
+                  ReturnName="data.MainAMDataControl.methodResults.getPopulateValue_MainAMDataControl_dataProvider_getPopulateValue_result">
+      <NamedData NDName="r" NDType="oracle.jbo.Row"/>
+      <NamedData NDName="columnName" NDType="java.lang.String"/>
+    </methodAction>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
+    <methodAction id="copyMethodNew"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="copyMethodNew"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="style" NDValue="#{bindings.HeaderIdTemp.inputValue}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="populateOperationLines11"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="populateOperationLines1"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="style" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="whereClasDeptName"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="whereClasDeptName"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="style" NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="setSessionValues"
+                  InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="7732" NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespApplId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
+    <methodAction id="Save" InstanceName="MainAMDataControl.dataProvider"
+                  DataControl="MainAMDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="Save"
+                  IsViewObjectMethod="false"/>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Creator">
+      <AttrNames>
+        <Item Value="Creator"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Updater">
+      <AttrNames>
+        <Item Value="Updater"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="CreationDate">
+      <AttrNames>
+        <Item Value="CreationDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="LastUpdatedDate">
+      <AttrNames>
+        <Item Value="LastUpdatedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgOperationMasterHView1Iterator"
+                  Uses="LOV_CombinedAttribute" id="CombinedAttribute"/>
+    <listOfValues StaticList="false"
+                  IterBinding="MnjMfgOperationMasterHView1Iterator"
+                  Uses="LOV_PocId" id="PocId"/>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Buyer">
+      <AttrNames>
+        <Item Value="Buyer"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="StyleName">
+      <AttrNames>
+        <Item Value="StyleName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="Season">
+      <AttrNames>
+        <Item Value="Season"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="ColorName">
+      <AttrNames>
+        <Item Value="ColorName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="WashName">
+      <AttrNames>
+        <Item Value="WashName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="CustomerNameNew">
+      <AttrNames>
+        <Item Value="CustomerNameNew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="StyleNew">
+      <AttrNames>
+        <Item Value="StyleNew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="SeasonNew">
+      <AttrNames>
+        <Item Value="SeasonNew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="ColorNew">
+      <AttrNames>
+        <Item Value="ColorNew"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
+                     id="WwashNameNew">
+      <AttrNames>
+        <Item Value="WwashNameNew"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
