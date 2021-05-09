@@ -26,18 +26,6 @@
     Name="P_STN_NO"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <Variable
-    Name="p_Org_Id"
-    Kind="where"
-    Type="java.lang.String">
-    <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Variable>
   <ViewAccessor
     Name="SaleOrder1"
     ViewObjectName="mnj.mfg.model.lov.views.SaleOrder"
@@ -221,10 +209,11 @@
     <AttrArray Name="DerivedAttrNames">
       <Item Value="Buyer"/>
       <Item Value="CustomerId"/>
-      <Item Value="StyleName"/>
-      <Item Value="Season"/>
-      <Item Value="ColorName"/>
-      <Item Value="WashName"/>
+      <Item Value="StyleNew"/>
+      <Item Value="SeasonNew"/>
+      <Item Value="WwashNameNew"/>
+      <Item Value="ColorNew"/>
+      <Item Value="CustomerNameNew"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
       <Item Value="PocId"/>
@@ -232,8 +221,9 @@
       <Item Value="BuyerId"/>
       <Item Value="Style"/>
       <Item Value="Season"/>
-      <Item Value="Color"/>
       <Item Value="Wash"/>
+      <Item Value="Color"/>
+      <Item Value="Buyer"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="PocId"/>
@@ -313,9 +303,9 @@ AND   SeasonDetailEO.SEASON_IDENTIFIER = MnjMfgOperationMasterH.Season --HeaderE
       L.color color_NEW,
       L.wash_name wwash_name_NEW
 FROM MNJ_MFG_OPERATION_MASTER_H MnjMfgOperationMasterH,xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
-where MnjMfgOperationMasterH.ORG_ID = :p_Org_Id
+where --MnjMfgOperationMasterH.ORG_ID = :p_Org_Id
 
-and MnjMfgOperationMasterH.POC_ID=h.poc_id
+MnjMfgOperationMasterH.POC_ID=h.poc_id
 and h.poc_id = L.poc_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
 AND H.LC_UNIT = MnjMfgOperationMasterH.ORG_ID
@@ -742,7 +732,6 @@ ORDER BY HEADER_ID Desc]]>
   </ViewAttribute>
   <ViewAttribute
     Name="CustomerNameNew"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="50"
@@ -757,7 +746,6 @@ ORDER BY HEADER_ID Desc]]>
   </ViewAttribute>
   <ViewAttribute
     Name="SeasonNew"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="30"
@@ -772,7 +760,6 @@ ORDER BY HEADER_ID Desc]]>
   </ViewAttribute>
   <ViewAttribute
     Name="StyleNew"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="100"
@@ -787,7 +774,6 @@ ORDER BY HEADER_ID Desc]]>
   </ViewAttribute>
   <ViewAttribute
     Name="ColorNew"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="30"
@@ -802,7 +788,6 @@ ORDER BY HEADER_ID Desc]]>
   </ViewAttribute>
   <ViewAttribute
     Name="WwashNameNew"
-    IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
     Precision="100"

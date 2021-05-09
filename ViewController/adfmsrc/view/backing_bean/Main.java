@@ -311,7 +311,7 @@ public class Main {
         operationBinding.execute();
         ViewObject hview=appM.getMnjMfgOperationMasterHView1();
        
-        hview.clearCache();
+        //hview.clearCache();
         AdfFacesContext.getCurrentInstance().addPartialTarget(htable);
     }
 

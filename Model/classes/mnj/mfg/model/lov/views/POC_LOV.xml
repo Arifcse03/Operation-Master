@@ -19,12 +19,6 @@
         ResId="mnj.mfg.model.lov.views.POC_LOV_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <Variable
-    Name="p_org"
-    Kind="where"
-    Type="java.lang.String">
-    <TransientExpression><![CDATA[adf.context.sessionScope.orgId]]></TransientExpression>
-  </Variable>
   <SQLQuery>
     <![CDATA[SELECT DISTINCT
 H.poc_id,
@@ -40,7 +34,7 @@ L.wash_name wash
 FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
 WHERE h.poc_id = L.poc_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
-AND H.LC_UNIT = :p_org]]>
+/*AND H.LC_UNIT = :p_org*/]]>
   </SQLQuery>
   <ViewAttribute
     Name="PocId"
