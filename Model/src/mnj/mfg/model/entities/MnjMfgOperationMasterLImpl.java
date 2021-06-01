@@ -183,6 +183,16 @@ public class MnjMfgOperationMasterLImpl extends EntityImpl {
             }
         }
         ,
+        Remarks {
+            public Object get(MnjMfgOperationMasterLImpl obj) {
+                return obj.getRemarks();
+            }
+
+            public void put(MnjMfgOperationMasterLImpl obj, Object value) {
+                obj.setRemarks((String)value);
+            }
+        }
+        ,
         MnjMfgOperationMasterH {
             public Object get(MnjMfgOperationMasterLImpl obj) {
                 return obj.getMnjMfgOperationMasterH();
@@ -247,6 +257,7 @@ public class MnjMfgOperationMasterLImpl extends EntityImpl {
     public static final int VERSIONNO = AttributesEnum.VersionNo.index();
     public static final int TOTALSAMVALUE = AttributesEnum.TotalSamValue.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int MNJMFGOPERATIONMASTERH = AttributesEnum.MnjMfgOperationMasterH.index();
     public static final int DEATILSEO = AttributesEnum.DeatilsEO.index();
 
@@ -505,6 +516,22 @@ public class MnjMfgOperationMasterLImpl extends EntityImpl {
      */
     public void setLastUpdatedDate(Date value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for Remarks, using the alias name Remarks.
+     * @return the Remarks
+     */
+    public String getRemarks() {
+        return (String)getAttributeInternal(REMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Remarks.
+     * @param value value to set the Remarks
+     */
+    public void setRemarks(String value) {
+        setAttributeInternal(REMARKS, value);
     }
 
     /**

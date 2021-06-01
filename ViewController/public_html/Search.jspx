@@ -106,7 +106,7 @@
                   <f:facet name="legend"/>
                   <f:facet name="info"/>
                   <af:panelHeader text="Header" id="ph2"
-                                  inlineStyle="width:auto;">
+                                  inlineStyle="height:200.0px;">
                     <f:facet name="context"/>
                     <f:facet name="menuBar"/>
                     <f:facet name="toolbar"/>
@@ -114,7 +114,7 @@
                     <f:facet name="info"/>
                     <af:panelFormLayout id="pfl2" labelAlignment="start"
                                         maxColumns="5"
-                                        inlineStyle="width:966px; height:auto;"
+                                        inlineStyle="width:966px; height:200px;"
                                         rows="5">
                       <af:inputText value="#{bindings.HeaderNo.inputValue}"
                                     label="Document No"
@@ -197,16 +197,43 @@
                         <af:outputText value="#{bindings.SeasonNew.inputValue}"
                                        id="ot8"/>
                       </af:panelLabelAndMessage>
-                      <af:panelLabelAndMessage label="Color:"
-                                               id="plam4">
-                        <af:outputText value="#{bindings.ColorNew.inputValue}"
-                                       id="ot9"/>
-                      </af:panelLabelAndMessage>
-                      <af:panelLabelAndMessage label="Wash:"
-                                               id="plam5">
-                        <af:outputText value="#{bindings.WwashNameNew.inputValue}"
-                                       id="ot10"/>
-                      </af:panelLabelAndMessage>
+                      <af:showDetailHeader text="Search Criteria"
+                                           disclosed="true" id="sdh1"
+                                           inlineStyle="width:175px; height:46px;"
+                                           visible="true">
+                        <f:facet name="context"/>
+                        <f:facet name="menuBar"/>
+                        <f:facet name="toolbar"/>
+                        <f:facet name="legend"/>
+                        <f:facet name="info"/>
+                        <af:panelGroupLayout id="pgl7" layout="horizontal">
+                          <af:inputListOfValues id="searchStnId"
+                                                popupTitle="Search and Select: #{bindings.SearchStn.hints.label}"
+                                                value="#{bindings.SearchStn.inputValue}"
+                                                label="Style"
+                                                model="#{bindings.SearchStn.listOfValuesModel}"
+                                                required="#{bindings.SearchStn.hints.mandatory}"
+                                                columns="#{bindings.SearchStn.hints.displayWidth}"
+                                                shortDesc="#{bindings.SearchStn.hints.tooltip}"
+                                                binding="#{ManagedBean.searchSTN}">
+                            <f:validator binding="#{bindings.SearchStn.validator}"/>
+                            <af:autoSuggestBehavior suggestedItems="#{bindings.SearchStn.suggestedItems}"/>
+                          </af:inputListOfValues>
+                          <af:commandButton text="Copy" id="cb13"
+                                            actionListener="#{bindings.copyMethodNew.execute}"
+                                            visible="true"/>
+                          <af:inputText value="#{bindings.HeaderIdTemp.inputValue}"
+                                        label="#{bindings.HeaderIdTemp.hints.label}"
+                                        required="#{bindings.HeaderIdTemp.hints.mandatory}"
+                                        columns="#{bindings.HeaderIdTemp.hints.displayWidth}"
+                                        maximumLength="#{bindings.HeaderIdTemp.hints.precision}"
+                                        shortDesc="#{bindings.HeaderIdTemp.hints.tooltip}"
+                                        id="it2" partialTriggers="searchStnId"
+                                        visible="false">
+                            <f:validator binding="#{bindings.HeaderIdTemp.validator}"/>
+                          </af:inputText>
+                        </af:panelGroupLayout>
+                      </af:showDetailHeader>
                       <af:inputText value="#{bindings.Buyer.inputValue}"
                                     label="#{bindings.Buyer.hints.label}"
                                     required="#{bindings.Buyer.hints.mandatory}"
@@ -379,42 +406,6 @@
                           <af:convertDateTime pattern="#{bindings.LastUpdatedDate.format}"/>
                         </af:inputText>
                       </af:showDetail>
-                      <af:showDetailHeader text="Search Criteria"
-                                           disclosed="true" id="sdh1"
-                                           inlineStyle="width:175px; height:46px;"
-                                           visible="false">
-                        <f:facet name="context"/>
-                        <f:facet name="menuBar"/>
-                        <f:facet name="toolbar"/>
-                        <f:facet name="legend"/>
-                        <f:facet name="info"/>
-                        <af:panelGroupLayout id="pgl7" layout="horizontal">
-                          <af:inputListOfValues id="searchStnId"
-                                                popupTitle="Search and Select: #{bindings.SearchStn.hints.label}"
-                                                value="#{bindings.SearchStn.inputValue}"
-                                                label="Style"
-                                                model="#{bindings.SearchStn.listOfValuesModel}"
-                                                required="#{bindings.SearchStn.hints.mandatory}"
-                                                columns="#{bindings.SearchStn.hints.displayWidth}"
-                                                shortDesc="#{bindings.SearchStn.hints.tooltip}"
-                                                binding="#{ManagedBean.searchSTN}">
-                            <f:validator binding="#{bindings.SearchStn.validator}"/>
-                            <af:autoSuggestBehavior suggestedItems="#{bindings.SearchStn.suggestedItems}"/>
-                          </af:inputListOfValues>
-                          <af:commandButton text="Copy" id="cb13"
-                                            actionListener="#{bindings.copyMethodNew.execute}"/>
-                          <af:inputText value="#{bindings.HeaderIdTemp.inputValue}"
-                                        label="#{bindings.HeaderIdTemp.hints.label}"
-                                        required="#{bindings.HeaderIdTemp.hints.mandatory}"
-                                        columns="#{bindings.HeaderIdTemp.hints.displayWidth}"
-                                        maximumLength="#{bindings.HeaderIdTemp.hints.precision}"
-                                        shortDesc="#{bindings.HeaderIdTemp.hints.tooltip}"
-                                        id="it2" partialTriggers="searchStnId"
-                                        visible="false">
-                            <f:validator binding="#{bindings.HeaderIdTemp.validator}"/>
-                          </af:inputText>
-                        </af:panelGroupLayout>
-                      </af:showDetailHeader>
                       <f:facet name="footer">
                         <af:group id="g1">
                           <af:separator id="s1"/>
@@ -462,13 +453,13 @@
                       </f:facet>
                     </af:panelFormLayout>
                   </af:panelHeader>
-                  <af:spacer width="10" height="20" id="s2"/>
+                  <af:spacer width="10" height="10" id="s2"/>
                   <af:panelGroupLayout id="pgl5" layout="vertical"
                                        inlineStyle="width:975px; height:333px;">
                     <af:panelBox text="-" id="pb3"
                                  inlineStyle="width:364px;">
                       <f:facet name="toolbar"/>
-                      <af:panelCollection id="pc1" inlineStyle="width:342px;">
+                      <af:panelCollection id="pc1" inlineStyle="width:662px;">
                         <f:facet name="menus"/>
                         <f:facet name="toolbar">
                           <af:toolbar id="t4">
@@ -588,6 +579,19 @@
                               <f:validator binding="#{row.bindings.TardetProduction.validator}"/>
                               <af:convertNumber groupingUsed="false"
                                                 pattern="#{bindings.MnjMfgOperationMasterLView1.hints.TardetProduction.format}"/>
+                            </af:inputText>
+                          </af:column>
+                          <af:column headerText="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.label}"
+                                     id="c20" sortable="true" filterable="true"
+                                     align="center" sortProperty="Remarks">
+                            <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                          label="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.label}"
+                                          required="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.mandatory}"
+                                          columns="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.displayWidth}"
+                                          maximumLength="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.precision}"
+                                          shortDesc="#{bindings.MnjMfgOperationMasterLView1.hints.Remarks.tooltip}"
+                                          id="it32">
+                              <f:validator binding="#{row.bindings.Remarks.validator}"/>
                             </af:inputText>
                           </af:column>
                           <f:facet name="detailStamp">

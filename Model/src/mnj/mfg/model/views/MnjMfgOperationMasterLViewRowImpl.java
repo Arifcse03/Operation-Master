@@ -206,6 +206,17 @@ public class MnjMfgOperationMasterLViewRowImpl extends ViewRowImpl {
             }
         }
         ,
+        Remarks {
+            public Object get(MnjMfgOperationMasterLViewRowImpl obj) {
+                return obj.getRemarks();
+            }
+
+            public void put(MnjMfgOperationMasterLViewRowImpl obj,
+                            Object value) {
+                obj.setRemarks((String)value);
+            }
+        }
+        ,
         DeatilsEOView {
             public Object get(MnjMfgOperationMasterLViewRowImpl obj) {
                 return obj.getDeatilsEOView();
@@ -307,6 +318,7 @@ public class MnjMfgOperationMasterLViewRowImpl extends ViewRowImpl {
     public static final int VERSIONNO = AttributesEnum.VersionNo.index();
     public static final int TOTALSAMVALUE = AttributesEnum.TotalSamValue.index();
     public static final int LASTUPDATEDDATE = AttributesEnum.LastUpdatedDate.index();
+    public static final int REMARKS = AttributesEnum.Remarks.index();
     public static final int DEATILSEOVIEW = AttributesEnum.DeatilsEOView.index();
     public static final int BOMDEPARTMENTS1 = AttributesEnum.BomDepartments1.index();
     public static final int DEPARTMENTVO1 = AttributesEnum.DepartmentVO1.index();
@@ -597,6 +609,22 @@ public class MnjMfgOperationMasterLViewRowImpl extends ViewRowImpl {
      */
     public void setLastUpdatedDate(Date value) {
         setAttributeInternal(LASTUPDATEDDATE, value);
+    }
+
+    /**
+     * Gets the attribute value for REMARKS using the alias name Remarks.
+     * @return the REMARKS
+     */
+    public String getRemarks() {
+        return (String) getAttributeInternal(REMARKS);
+    }
+
+    /**
+     * Sets <code>value</code> as attribute value for REMARKS using the alias name Remarks.
+     * @param value value to set the REMARKS
+     */
+    public void setRemarks(String value) {
+        setAttributeInternal(REMARKS, value);
     }
 
     /**

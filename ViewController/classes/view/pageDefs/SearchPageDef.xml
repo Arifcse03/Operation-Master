@@ -70,6 +70,7 @@
           <Item Value="LastUpdatedDate"/>
           <Item Value="CreatedBy"/>
           <Item Value="LastUdatedBy"/>
+          <Item Value="Remarks"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -326,18 +327,6 @@
                      id="SeasonNew">
       <AttrNames>
         <Item Value="SeasonNew"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
-                     id="ColorNew">
-      <AttrNames>
-        <Item Value="ColorNew"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="MnjMfgOperationMasterHView1Iterator"
-                     id="WwashNameNew">
-      <AttrNames>
-        <Item Value="WwashNameNew"/>
       </AttrNames>
     </attributeValues>
   </bindings>

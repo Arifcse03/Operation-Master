@@ -211,8 +211,6 @@
       <Item Value="CustomerId"/>
       <Item Value="StyleNew"/>
       <Item Value="SeasonNew"/>
-      <Item Value="WwashNameNew"/>
-      <Item Value="ColorNew"/>
       <Item Value="CustomerNameNew"/>
     </AttrArray>
     <AttrArray Name="ListAttrNames">
@@ -221,8 +219,6 @@
       <Item Value="BuyerId"/>
       <Item Value="Style"/>
       <Item Value="Season"/>
-      <Item Value="Wash"/>
-      <Item Value="Color"/>
       <Item Value="Buyer"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
@@ -230,8 +226,6 @@
       <Item Value="Buyer"/>
       <Item Value="Style"/>
       <Item Value="Season"/>
-      <Item Value="Color"/>
-      <Item Value="Wash"/>
     </AttrArray>
     <DisplayCriteria
       Hint="showAndExecute"/>
@@ -299,16 +293,15 @@ AND   SeasonDetailEO.SEASON_IDENTIFIER = MnjMfgOperationMasterH.Season --HeaderE
        AND   rownum = 1) CURRENT_SEASON,
       ac.CUSTOMER_NAME CUSTOMER_NAME_NEW,
       H.SEASON SEASON_NEW,
-      H.STYLE STYLE_NEW,
-      L.color color_NEW,
-      L.wash_name wwash_name_NEW
-FROM MNJ_MFG_OPERATION_MASTER_H MnjMfgOperationMasterH,xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
+      H.STYLE STYLE_NEW
+      --L.color color_NEW,
+      --L.wash_name wwash_name_NEW
+FROM MNJ_MFG_OPERATION_MASTER_H MnjMfgOperationMasterH,xx_om_poc_h_t H, ar_customers ac
 where --MnjMfgOperationMasterH.ORG_ID = :p_Org_Id
 
 MnjMfgOperationMasterH.POC_ID=h.poc_id
-and h.poc_id = L.poc_id
 AND h.BUYER_ID = ac.CUSTOMER_ID
-AND H.LC_UNIT = MnjMfgOperationMasterH.ORG_ID
+/*AND H.LC_UNIT = MnjMfgOperationMasterH.ORG_ID --01-06-2021 ask by wasi uddin*/
 ORDER BY HEADER_ID Desc]]>
   </SQLQuery>
   <EntityUsage
@@ -767,34 +760,6 @@ ORDER BY HEADER_ID Desc]]>
     ColumnType="VARCHAR2"
     AliasName="STYLE_NEW"
     Expression="STYLE_NEW"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="ColorNew"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="30"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="COLOR_NEW"
-    Expression="COLOR_NEW"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="WwashNameNew"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="100"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="WWASH_NAME_NEW"
-    Expression="WWASH_NAME_NEW"
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="100"/>

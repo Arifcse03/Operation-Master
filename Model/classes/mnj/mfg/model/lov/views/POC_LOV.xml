@@ -22,18 +22,17 @@
   <SQLQuery>
     <![CDATA[SELECT DISTINCT
 H.poc_id,
-L.system_id,
+--L.system_id,
 
 H.BUYER_ID,
 ac.CUSTOMER_NAME buyer,
 H.SEASON,
 H.STYLE,
-h.brand,
-L.color color,
-L.wash_name wash
-FROM xx_om_poc_h_t H, xx_om_poc_L_t L, ar_customers ac
-WHERE h.poc_id = L.poc_id
-AND h.BUYER_ID = ac.CUSTOMER_ID
+h.brand
+/*L.color color,
+L.wash_name wash*/
+FROM xx_om_poc_h_t H, ar_customers ac
+WHERE /*h.poc_id = L.poc_id*/h.BUYER_ID = ac.CUSTOMER_ID
 /*AND H.LC_UNIT = :p_org*/]]>
   </SQLQuery>
   <ViewAttribute
@@ -52,28 +51,6 @@ AND h.BUYER_ID = ac.CUSTOMER_ID
     </DesignTime>
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="10"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="SystemId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="oracle.jbo.domain.Number"
-    ColumnType="NUMBER"
-    AliasName="SYSTEM_ID"
-    Expression="SYSTEM_ID"
-    SQLType="NUMERIC">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="39"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
         <DISPLAYWIDTH
           Value="10"/>
       </SchemaBasedProperties>
@@ -186,48 +163,6 @@ AND h.BUYER_ID = ac.CUSTOMER_ID
           Value="10"/>
         <DISPLAYHINT
           Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Color"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="30"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="COLOR"
-    Expression="COLOR"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="30"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="20"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Wash"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="100"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="WASH"
-    Expression="WASH"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="100"/>
-    </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

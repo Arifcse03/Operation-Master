@@ -4,7 +4,7 @@
 <Entity
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="MnjMfgOperationMasterL"
-  Version="11.1.1.64.93"
+  Version="11.1.1.62.29"
   InheritPersonalization="true"
   DBObjectType="table"
   DBObjectName="MNJ_MFG_OPERATION_MASTER_L"
@@ -187,6 +187,18 @@
     TableName="MNJ_MFG_OPERATION_MASTER_L">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Remarks"
+    Precision="150"
+    ColumnName="REMARKS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MNJ_MFG_OPERATION_MASTER_L">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
     </DesignTime>
   </Attribute>
   <AccessorAttribute

@@ -4,7 +4,7 @@
 <ViewObject
   xmlns="http://xmlns.oracle.com/bc4j"
   Name="MnjMfgOperationMasterLView"
-  Version="11.1.1.64.93"
+  Version="11.1.1.62.29"
   InheritPersonalization="true"
   BindingStyle="OracleName"
   CustomQuery="true"
@@ -130,7 +130,8 @@
        MnjMfgOperationMasterL.Option_NO,
        MnjMfgOperationMasterL.Version_NO,
        MnjMfgOperationMasterL.Total_SAM_Value,
-       MnjMfgOperationMasterL.LAST_UPDATED_DATE
+       MnjMfgOperationMasterL.LAST_UPDATED_DATE,
+MnjMfgOperationMasterL.Remarks
 FROM MNJ_MFG_OPERATION_MASTER_L MnjMfgOperationMasterL]]>
   </SQLQuery>
   <EntityUsage
@@ -289,6 +290,12 @@ FROM MNJ_MFG_OPERATION_MASTER_L MnjMfgOperationMasterL]]>
     EntityAttrName="LastUpdatedDate"
     EntityUsage="MnjMfgOperationMasterL"
     AliasName="LAST_UPDATED_DATE"/>
+  <ViewAttribute
+    Name="Remarks"
+    PrecisionRule="true"
+    EntityAttrName="Remarks"
+    EntityUsage="MnjMfgOperationMasterL"
+    AliasName="REMARKS"/>
   <ViewLinkAccessor
     Name="DeatilsEOView"
     ViewLink="mnj.mfg.model.views.MnjMfgOperationMasterDFkLink"
